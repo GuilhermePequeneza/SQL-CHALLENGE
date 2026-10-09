@@ -1,4 +1,4 @@
-DROP TABLE demo
+DROP TABLE demo;
 
 CREATE TABLE Pessoa (
     IdPessoa INT PRIMARY KEY,
