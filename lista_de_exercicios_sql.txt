@@ -1,0 +1,133 @@
+====================================================================
+               LISTA DE EXERCÍCIOS PRÁTICOS DE SQL
+     Tópicos: SELECT, WHERE, AND, Funções de Agregação, JOIN,
+                         GROUP BY e HAVING
+====================================================================
+
+ESTRUTURA DO BANCO DE DADOS:
+- Pessoa (IdPessoa, nome, sobrenome, idade, genero)
+- Pedido (IdPedido, IdPessoa, valor, status)
+- Categoria (IdCategoria, nome_categoria)
+- Produto (IdProduto, IdCategoria, nome_produto, preco_unitario)
+- ItemPedido (IdItem, IdPedido, IdProduto, quantidade)
+
+--------------------------------------------------------------------
+EXERCÍCIO 1: Filtro Condicional com Texto e Faixa de Idade
+--------------------------------------------------------------------
+Tópicos: SELECT, WHERE, AND, ORDER BY
+Tabela: Pessoa
+
+Enunciado:
+Selecione o nome, sobrenome e idade de todos os homens (genero = 'M') 
+que tenham idade entre 25 e 35 anos (inclusive).
+Ordene o resultado do mais jovem para o mais velho.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 2: Métricas Agregadas com Filtro de Linhas
+--------------------------------------------------------------------
+Tópicos: SUM, AVG, WHERE
+Tabela: Pedido
+
+Enunciado:
+Calcule a soma total faturada e o valor médio dos pedidos cadastrados 
+com status 'Cancelado'.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 3: Agrupamento Simples e Estatísticas de Preço
+--------------------------------------------------------------------
+Tópicos: GROUP BY, MIN, MAX, AVG
+Tabela: Produto
+
+Enunciado:
+Na tabela Produto, agrupe os itens por categoria (IdCategoria) e 
+calcule o menor preço, o maior preço e a média de preço dos 
+produtos pertencentes a cada categoria.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 4: Filtragem de Grupos por Ocorrência
+--------------------------------------------------------------------
+Tópicos: GROUP BY, HAVING, COUNT
+Tabela: Pessoa
+
+Enunciado:
+Identifique faixas de idade com concentração de registros: 
+agrupe a tabela Pessoa por idade e exiba apenas as idades 
+que aparecem 3 ou mais vezes na base.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 5: Junção Básica com Critério Restritivo
+--------------------------------------------------------------------
+Tópicos: INNER JOIN, WHERE
+Tabelas: Pedido, Pessoa
+
+Enunciado:
+Liste o IdPedido, o nome do cliente, o sobrenome e o valor de todos 
+os pedidos que foram registrados com status 'Cancelado'.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 6: Identificação de Dados Ausentes
+--------------------------------------------------------------------
+Tópicos: LEFT JOIN, IS NULL, AND
+Tabelas: Pessoa, Pedido
+
+Enunciado:
+Encontre todas as mulheres cadastradas (genero = 'F') que nunca 
+realizaram nenhum pedido na plataforma. Exiba IdPessoa, nome, 
+sobrenome e idade.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 7: Junção Relacional em Cadeia (3 Tabelas)
+--------------------------------------------------------------------
+Tópicos: INNER JOIN múltiplo, WHERE, ORDER BY
+Tabelas: Pessoa, Pedido, ItemPedido
+
+Enunciado:
+Obtenha o nome da pessoa, o sobrenome, o ID do pedido e o ID dos 
+produtos comprados por ela, considerando apenas pedidos com status 
+'Concluído'. Ordene pelo IdPedido de forma crescente.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 8: Agrupamento com Junção de Tabelas
+--------------------------------------------------------------------
+Tópicos: INNER JOIN, GROUP BY, COUNT, ORDER BY
+Tabelas: Categoria, Produto
+
+Enunciado:
+Para cada categoria de produto cadastrada, exiba o nome da categoria 
+(nome_categoria) e a quantidade total de produtos vinculados a ela. 
+Ordene o resultado da categoria com maior volume de itens para a menor.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 9: Análise de Clientes com Filtro em Métrica Agregada
+--------------------------------------------------------------------
+Tópicos: INNER JOIN, GROUP BY, HAVING, SUM, COUNT
+Tabelas: Pessoa, Pedido
+
+Enunciado:
+Encontre os clientes que acumularam mais de R$ 200,00 em compras com 
+status 'Concluído'. Exiba o IdPessoa, o nome, a quantidade de pedidos 
+realizados e o valor total acumulado, ordenando do maior comprador 
+para o menor.
+
+
+--------------------------------------------------------------------
+EXERCÍCIO 10: Relatório Consolidado de Consumo Multitabelas
+--------------------------------------------------------------------
+Tópicos: INNER JOIN (4 tabelas), GROUP BY, SUM, ORDER BY
+Tabelas: Pessoa, Pedido, ItemPedido, Produto, Categoria
+
+Enunciado:
+Descubra o perfil de consumo por categoria: mostre o nome da pessoa, 
+o sobrenome, o nome da categoria comprada e o total de unidades 
+adquiridas nessa categoria (somatório de quantidade do item), 
+considerando apenas pedidos concluídos. Ordene pelo nome da pessoa 
+e pelo total de unidades em ordem decrescente.
+====================================================================
